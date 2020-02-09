@@ -8,10 +8,10 @@ aix-packages: Aix-packages
 Ansible galaxy:
 ---------------
 
-[https://galaxy.ansible.com/devops-toolbox.aix-packages](https://galaxy.ansible.com/devops-toolbox.aix-packages)
+[https://galaxy.ansible.com/devopstoolbox.aix-packages](https://galaxy.ansible.com/devopstoolbox.aix-packages)
 
 ```bash
-ansible-galaxy install devops-toolbox.aix-packages
+ansible-galaxy install devopstoolbox.aix-packages
 ```
 
 Requirements
@@ -60,7 +60,7 @@ Example Playbook
   tasks:
     - name: aix-packages is configured
       import_role:
-        name: devops-toolbox.aix-packages
+        name: devopstoolbox.aix-packages
       vars:
         aix-packages_packages_state: present
         aix-packages_remove_packages: true
@@ -89,4 +89,4 @@ MIT
 Author Information
 ------------------
 
-- [Mihai Criveti](https://www.linkedin.com/in/devops-toolbox.)
+- [Mihai Criveti](https://www.linkedin.com/in/devopstoolbox.)
