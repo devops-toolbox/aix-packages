@@ -1,0 +1,10 @@
+---
+# Template configuration files for aix-packages
+
+- name: template is copied
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  become: true
+  loop: "{{ aix-packages_templates_copy }}"
+  when: aix-packages_copy_templates

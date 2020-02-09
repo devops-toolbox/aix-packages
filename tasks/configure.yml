@@ -1,0 +1,11 @@
+---
+# Configure aix-packages
+
+- name: service is enabled and started
+  service:
+    name: "{{ item }}"
+    enabled: true
+    state: started
+  become: true
+  loop: "{{ aix-packages_services_enable }}"
+  when: aix-packages_enable_service

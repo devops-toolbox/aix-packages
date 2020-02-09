@@ -1,0 +1,27 @@
+---
+# Install aix-packages packages
+
+- name: unwanted packages are removed
+  package:
+    name: "{{ aix-packages_packages_remove }}"
+    state: absent
+  become: true
+  when: aix-packages_remove_packages
+
+- name: prereq repositories are installed
+  package:
+    name: "{{ aix-packages_packages_repos }}"
+    state: "{{ aix-packages_packages_state }}"
+  become: true
+
+- name: prereq packages are installed
+  package:
+    name: "{{ aix-packages_packages_prereq }}"
+    state: "{{ aix-packages_packages_state }}"
+  become: true
+
+- name: packages are installed
+  package:
+    name: "{{ aix-packages_packages_install }}"
+    state: "{{ aix-packages_packages_state }}"
+  become: true

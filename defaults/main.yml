@@ -1,0 +1,19 @@
+---
+# defaults file for aix-packages
+
+aix-packages_packages_state: present
+aix-packages_remove_packages: true
+aix-packages_enable_service: true
+aix-packages_enable_selinux: true
+aix-packages_copy_templates: true
+aix-packages_firewall_configure: true
+aix-packages_firewall_rules:
+  - service: ssh
+  - port: 3389
+aix-packages_users:
+  - user: devops
+    group: docker
+aix-packages_selinux_booleans:
+  - name: ftp_home_dir
+    state: true
+    persistent: true

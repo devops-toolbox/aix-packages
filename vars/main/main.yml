@@ -1,0 +1,44 @@
+---
+# vars file for packages
+
+# Detected OS
+my_os: "{{ ansible_distribution }}_{{ ansible_distribution_major_version }}"
+
+# Repos create
+aix-packages_repos_create: "{{ _aix-packages_repos_create['all']
+  | union ( _aix-packages_repos_create[my_os]
+  | default([]) ) }}"
+
+# Repos download
+aix-packages_repos_download: "{{ _aix-packages_repos_download['all']
+  | union ( _aix-packages_repos_download[my_os]
+  | default([]) ) }}"
+
+# Templates Copy
+aix-packages_templates_copy: "{{ _aix-packages_templates_copy['all']
+  | union ( _aix-packages_templates_copy[my_os]
+  | default([]) ) }}"
+
+# Services Enable
+aix-packages_services_enable: "{{ _aix-packages_services_enable['all']
+  | union ( _aix-packages_services_enable[my_os]
+  | default([]) ) }}"
+
+# SELinux Enable
+aix-packages_selinux_enable: "{{ _aix-packages_selinux_enable['all']
+  | union ( _aix-packages_selinux_enable[my_os]
+  | default([]) ) }}"
+
+# Packages lists
+aix-packages_packages_remove: "{{ _aix-packages_packages_remove['all']
+  | union ( _aix-packages_packages_remove[my_os]
+  | default([]) ) }}"
+aix-packages_packages_repos: "{{ _aix-packages_packages_repos['all']
+  | union ( _aix-packages_packages_repos[my_os]
+  | default([]) ) }}"
+aix-packages_packages_prereq: "{{ _aix-packages_packages_prereq['all']
+  | union ( _aix-packages_packages_prereq[my_os]
+  | default([]) ) }}"
+aix-packages_packages_install: "{{ _aix-packages_packages_install['all']
+  | union ( _aix-packages_packages_install[my_os]
+  | default([]) ) }}"
